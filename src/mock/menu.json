@@ -1,0 +1,377 @@
+{
+  "compilerOptions":    {
+    "path": "/",
+    "name": "ContainerNav",
+    "component": "() => import('../components/ui/containerNav')",
+    "children":[
+      {
+        "path": "/dynamicContent",
+        "name": "DynamicContent",
+        "meta": {
+          "title": "党建动态"
+        },
+        "children":[
+          {
+            "path": "/checkEssay",
+            "name": "CheckEssay",
+            "meta": {
+              "requireAuth": true ,
+              "title": "稿件审核"
+            }
+          },
+          {
+            "path": "/checkEssayDetails",
+            "name": "checkEssayDetails",
+            "meta": {
+              "requireAuth": true,
+              "title": "查看稿件详情页面",
+              "hidden": true
+            }
+          },
+          {
+            "path": "/like",
+            "name": "LikeManage",
+            "meta": {
+              "requireAuth": true ,
+              "title": "点赞管理"
+            }
+          },
+          {
+            "path": "/publish",
+            "name": "PublishEssay",
+            "meta": {
+              "requireAuth": true,
+              "title": "文章发布"
+            }
+          },
+          //文章发布->创建发布
+          {
+            path:'/establishEssay',
+            name:'establishEssay',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/dynamic/dynamicOperation/mien/EstablishEssay')
+          },
+          {//文章发布管理/点赞管理->查看详情页面
+            path:'/essayDetails',
+            name:'essayDetails',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/dynamic/dynamicOperation/mien/essayDetails')
+          },
+          {//文章发布管理/点赞管理->点赞列表管理
+            path:'/likeListManage',
+            name:'likeListManage',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/dynamic/dynamicOperation/mien/likeListManage.vue')
+          },
+          //党校培训管理
+          {
+            path:'/cultivate',
+            name:'CultivateManage',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/dynamic/dynamicOperation/cultivate/cultivateManage')
+          },
+          //党校培训管理->创建
+          {
+            path:'/cultivateEstablish',
+            name:'cultivateEstablish',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/dynamic/dynamicOperation/cultivate/cultivateEstablish')
+          }
+
+        ]
+      },
+      /*
+      ***************************************************************************************************************
+       */
+      //党建服务
+      {
+        path:'/service',
+        name:'ServiceContent',
+        meta: {
+          requireAuth: true
+        },
+        component:() =>import('../view/Container.vue'),
+        children:[
+          //志愿活动审核管理
+          {
+            path:'/',
+            name:'CheckActivity',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/volunteer/checkActivity.vue')
+          },
+          {
+            path:'/checkActivityDetail',
+            name:'checkActivityDetail',
+            meta:{
+              requireAuth:true
+            },
+            component:() =>import('../view/service/serviceOperation/volunteer/checkActivityDetail.vue')
+          },
+          {
+            path:'/registerActivityDetail',
+            name:'checkActivityDetail',
+            meta:{
+              requireAuth:true
+            },
+            component:()=>import('../view/service/serviceOperation/volunteer/registerActivityDetail.vue')
+          },
+          //活动报名管理
+          {
+            path:'/register',
+            name:'RegisterActivity',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/volunteer/registerActivity')
+          },
+          //三会一课管理
+          {
+            path:'/three',
+            name:'ThreeLessons',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/meeting/threeLessons')
+          },
+          //三会一课管理/创建三会一课
+          {
+            path:'/createThree',
+            name:'createThree',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/meeting/createThree')
+          },
+          //纪要管理
+          {
+            path:'/summary',
+            name:'SummaryManage',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/meeting/summaryManage')
+          },
+          //留言管理
+          {
+            path:'/leave',
+            name:'LeaveMessage',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/leaveMessage/leaveMessage')
+          },
+          //投票管理
+          {
+            path:'/vote',
+            name:'VoteManage',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/vote/voteManage')
+          },
+          //转组织关系
+          {
+            path:'/turn',
+            name:'TurnOrganization',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/turnOrganization/turnOrganization')
+          },
+          //问题管理
+          {
+            path:'/questions',
+            name:'QuestionsManage',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/online/examQuestionsManage')
+          },
+          //答题记录管理
+          {
+            path:'/questionsRecord',
+            name:'QuestionsRecord',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/online/questionsRecord')
+          },
+          //问题分类管理
+          {
+            path:'/questionsClassify',
+            name:'QuestionsClassify',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/online/questionsClassify')
+          },
+          //题库管理
+          {
+            path:'/questionBank',
+            name:'QuestionBank',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/online/questionBank')
+          }, // 答题记录查看详情页面
+          {
+            path: '/recordDetails',
+            name: 'RecordDetails',
+            meta: {
+              requireAuth: true
+            },
+            component: () => import('../view/service/serviceOperation/online/questionsRecordDetails.vue')
+          },{
+            path: '/createExamQuestion',
+            name: 'CreateExamQuestion',
+            meta: {requireAuth: true},
+            component: () => import('../view/service/serviceOperation/online/createExamQuestion.vue')
+
+          },
+          //党主题日管理
+          {
+            path:'/themeDay',
+            name:'ThemeDay',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/themeDay/themeDay')
+          },
+          //党主题日管理/发布文章
+          {
+            path:'/createArticle',
+            name:'createArticle',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/service/serviceOperation/themeDay/createArticle')
+          }
+        ]
+      },
+      /*
+      ***************************************************************************************************************
+       */
+      //基础管理
+      {
+        path:'/managementContent',
+        name:'ManagementContent',
+        meta: {
+          requireAuth: true
+        },
+        component:() =>import('../view/Container.vue'),
+        children:[
+          //党员管理
+          {
+            path:'/',
+            name:'PartyMember',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/management/partyMember/partyMember')
+          },
+          //党员管理
+          {
+            path:'/partyMemberManagement',
+            name:'PartyMemberManagement',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/management/partyMember/partyMember')
+          },
+          //用户管理
+          {
+            path:'/userManage',
+            name:'UserManage',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/management/user/userManage')
+          },
+          //认证管理
+          {
+            path:'/authenticationManage',
+            name:'AuthenticationManage',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/management/authenticationManage/authenticationManage.vue')
+          },
+          {
+            path:'/viewIdentifyDetails',
+            name:'viewIdentifyDetails',
+            meta: {
+              requireAuth: true
+            },
+            component:()=>import('../view/management/authenticationManage/viewIdentifyDetails.vue')
+          },
+          //职务管理
+          {
+            path:'/officeManage',
+            name:'OfficeManage',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/management/officeManage/officeManage')
+          },
+          //权限管理
+          {
+            path:'/authorityManage',
+            name:'AuthorityManage',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/management/authorityManage/authorityManage')
+          },
+          //系统公告
+          {
+            path:'/systemNotice',
+            name:'SystemNotice',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/management/systemNotice/systemNotice')
+          },
+          //操作日志
+          {
+            path:'/operationLog',
+            name:'OperationLog',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/management/operationLog/operationLog')
+          },
+          //后台账号管理
+          {
+            path:'/accountManage',
+            name:'AccountManage',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/management/accountManage/accountManage')
+          },
+          //组织架构
+          {
+            path:'/organization',
+            name:'OrganizationFramework',
+            meta: {
+              requireAuth: true
+            },
+            component:() =>import('../view/management/organization/organizationFramework')
+          }
+        ]
+      }
+    ]
+  }
+}
